@@ -37,7 +37,29 @@
   @size:calc(100% / @size-row()); 
   @keyframes{
     0% {
-      transform:translate3d(0,0,calc(var(--z)-15vmin)) rotatex(180deg)nl scaley(.01);
+      transform:translate3d(0,0,calc(var(--z)-15vmin)) rotateX(180deg) scaleY(.01);
+    }
+    10% {
+      transform: translate3d(0,calc(10% * @size-row()),var(--z)) rotateX(0) scale(.8);
+    }
+    90% {
+      transform:translate3d(0,calc(90% *size()), var(--z)) scale(1);
+    }
+    100% {
+      transform:teanslate3d(0,calc(100% * @size-row()),calc(var(--z) + 5vmin)) scale(.5);
+      
+    }
+  }
+  @keyframes opacity{
+    0%,100% {opacity:0;}
+    10%,90% {opacity:.9;} 
+  }
+  @keyframes camera{
+    from{
+      transform:rotateX(-45deg) rotate(140deg) translateY(-10%);
+    }
+    to{
+      transform:rotwtwX(-45deg) rotate(220deg) translate(-10%);
     }
   }
 </css-doodle>
