@@ -23,5 +23,23 @@
     animation-direction:alternate-reverse;
   }
   --ds@r(1.5s,6s,.1);
+  --size:@r(1,9);
+  --z:calc(@i() * .0001px + var (--size)* .1px);
+  animation:move var(--ds) linear infinite, opacity var(--ds) linear infinite;
+  animation-delay:calc((@row()-@size-row())* var(--ds) / @size-row()-@r(@size()) * .1s);
+  :after{
+    content:'';
+    @size:calc(var(--size)* 10%);
+    background:@p(#0b8a9,#f8f3d4,#f6417c,#ffde7d);
+  }
+  position:absolute;
+  left:calc(100% / @size-row());
+  @size:calc(100% / @size-row()); 
+  @keyframes{
+    0% {
+      transform:translate3d(0,0,calc(var(--z)-15vmin)) rotatex(180deg)nl scaley(.01);
+    }
+  }
+</css-doodle>
 </body>
 </html>
